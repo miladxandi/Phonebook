@@ -20,11 +20,13 @@ namespace AdvancePhonebook.Controllers
 
         public IActionResult Index()
         {
+            ViewData["Title"] = "خانه";
             return View();
         }
 
         public IActionResult Privacy()
         {
+            ViewData["Title"] = "حریم خصوصی";
             return View();
         }
 

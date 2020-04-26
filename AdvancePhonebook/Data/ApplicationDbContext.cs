@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using AdvancePhonebook.Models;
 
 namespace AdvancePhonebook.Data
 {
@@ -12,5 +13,8 @@ namespace AdvancePhonebook.Data
             : base(options)
         {
         }
+        public DbSet<AdvancePhonebook.Models.Descriptions> Descriptions { get; set; }
+        public DbSet<AdvancePhonebook.Models.Enterprises> Enterprises { get; set; }
+        public DbSet<AdvancePhonebook.Models.Contacts> Contacts { get; set; }
     }
 }

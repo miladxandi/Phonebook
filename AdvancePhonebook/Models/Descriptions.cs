@@ -5,7 +5,7 @@ namespace AdvancePhonebook.Models
 {
     public partial class Descriptions
     {
-        public string Id { get; set; }
+        public long Id { get; set; }
         public string Topic { get; set; }
         public string Description { get; set; }
         public string CreatedAt { get; set; }

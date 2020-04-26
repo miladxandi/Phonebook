@@ -11,7 +11,7 @@ namespace AdvancePhonebook.Data.Migrations
                 name: "Enterprises",
                 columns: table => new
                 {
-                    Id = table.Column<string>(nullable: false),
+                    Id = table.Column<long>(nullable: false),
                     Name = table.Column<string>(maxLength: 256, nullable: true),
                     Email = table.Column<string>(maxLength: 256, nullable: true),
                     PhoneNumber = table.Column<string>(maxLength: 13,nullable: true),

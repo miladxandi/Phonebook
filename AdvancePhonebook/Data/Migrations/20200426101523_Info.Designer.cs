@@ -9,8 +9,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace AdvancePhonebook.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20200426065938_InfoCreate")]
-    partial class InfoCreate
+    [Migration("20200426101523_Info")]
+    partial class Info
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

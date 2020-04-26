@@ -22,12 +22,12 @@ namespace AdvancePhonebook.Models
         public virtual DbSet<AspNetUserRoles> AspNetUserRoles { get; set; }
         public virtual DbSet<AspNetUserTokens> AspNetUserTokens { get; set; }
         public virtual DbSet<AspNetUsers> AspNetUsers { get; set; }
+        public virtual DbSet<Contacts> Contacts { get; set; }
+        public virtual DbSet<DescriptionContacts> DescriptionContacts { get; set; }
         public virtual DbSet<DescriptionInfo> DescriptionInfo { get; set; }
         public virtual DbSet<Descriptions> Descriptions { get; set; }
-        public virtual DbSet<EnterpriseInfo> EnterpriseInfo { get; set; }
         public virtual DbSet<Enterprises> Enterprises { get; set; }
-        public virtual DbSet<Info> Info { get; set; }
-        public virtual DbSet<UserInfo> UserInfo { get; set; }
+        public virtual DbSet<UserContacts> UserContacts { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -115,6 +115,31 @@ namespace AdvancePhonebook.Models
                 entity.HasIndex(e => e.NormalizedUserName)
                     .HasName("UserNameIndex")
                     .IsUnique();
+            });
+
+            modelBuilder.Entity<Contacts>(entity =>
+            {
+                entity.Property(e => e.Id).ValueGeneratedNever();
+            });
+
+            modelBuilder.Entity<DescriptionContacts>(entity =>
+            {
+                entity.HasNoKey();
+            });
+
+            modelBuilder.Entity<Descriptions>(entity =>
+            {
+                entity.Property(e => e.Id).ValueGeneratedNever();
+            });
+
+            modelBuilder.Entity<Enterprises>(entity =>
+            {
+                entity.Property(e => e.Id).ValueGeneratedNever();
+            });
+
+            modelBuilder.Entity<UserContacts>(entity =>
+            {
+                entity.HasNoKey();
             });
 
             OnModelCreatingPartial(modelBuilder);

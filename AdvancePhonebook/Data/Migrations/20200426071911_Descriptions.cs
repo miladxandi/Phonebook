@@ -11,13 +11,16 @@ namespace AdvancePhonebook.Data.Migrations
                 name: "Descriptions",
                 columns: table => new
                 {
-                    Id = table.Column<string>(nullable: false),
+                    Id = table.Column<long>(nullable: false),
                     Topic = table.Column<string>(maxLength: 256, nullable: true),
                     Description = table.Column<string>( nullable: true),
                     CreatedAt = table.Column<DateTime>(nullable: true),
                     UpdatedAt = table.Column<DateTime>(nullable: true),
                 },
-                constraints: table => { table.PrimaryKey("PK_Descriptions", x => x.Id); });
+                constraints: table => 
+                { 
+                    table.PrimaryKey("PK_Descriptions", x => x.Id);
+                });
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)

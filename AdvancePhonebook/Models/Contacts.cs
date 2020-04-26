@@ -3,11 +3,11 @@ using System.Collections.Generic;
 
 namespace AdvancePhonebook.Models
 {
-    public partial class Info
+    public partial class Contacts
     {
-        public string Id { get; set; }
+        public long Id { get; set; }
         public string Name { get; set; }
-        public string EnterpriseId { get; set; }
+        public long? EnterpriseId { get; set; }
         public string Role { get; set; }
         public string Email { get; set; }
         public string PhoneNumber { get; set; }
