@@ -1,14 +1,14 @@
 ﻿@model AdvancePhonebook.Models.Contacts
 
 @{
-    ViewData["Title"] = "Details";
+    ViewData["Title"] = "جزئیات " + @Model.Name;
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1>Details</h1>
-
 <div>
-    <h4>Contacts</h4>
+    <p>
+        <h4>@ViewData["Title"]</h4>
+    </p>
     <hr />
     <dl class="row">
         <dt class = "col-sm-2">
@@ -80,6 +80,6 @@
     </dl>
 </div>
 <div>
-    <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
-    <a asp-action="Index">Back to List</a>
+    <a asp-action="Edit" asp-route-id="@Model.Id">ویرایش</a> |
+    <a asp-action="Index">بازگشت به لیست</a>
 </div>

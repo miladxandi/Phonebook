@@ -1,46 +1,46 @@
 ﻿@model AdvancePhonebook.Models.Descriptions
 
 @{
-    ViewData["Title"] = "Edit";
+    ViewData["Title"] = "افزودن توضیحات";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1>Edit</h1>
-
-<h4>Descriptions</h4>
-<hr />
+<p>
+    <h4>@ViewData["Title"]</h4>
+</p>
+<hr/>
 <div class="row">
-    <div class="col-md-4">
+    <div class="col-md-12">
         <form asp-action="Edit">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input type="hidden" asp-for="Id" />
-            <div class="form-group">
-                <label asp-for="Topic" class="control-label"></label>
-                <input asp-for="Topic" class="form-control" />
-                <span asp-validation-for="Topic" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="ContactId" class="control-label"></label>
-                <select asp-for="ContactId" class="form-control" asp-items="ViewBag.ContactId"></select>
-                <span asp-validation-for="ContactId" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Description" class="control-label"></label>
-                <input asp-for="Description" class="form-control" />
-                <span asp-validation-for="Description" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="CreatedAt" class="control-label"></label>
-                <input asp-for="CreatedAt" class="form-control" />
-                <span asp-validation-for="CreatedAt" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="UpdatedAt" class="control-label"></label>
-                <input asp-for="UpdatedAt" class="form-control" />
-                <span asp-validation-for="UpdatedAt" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
+            <input type="hidden" asp-for="Id"/>
+            <div class="row">
+                <div class="col-md-6 col-lg-6 col-sm-12">
+                    <div class="form-group">
+                        <label asp-for="Topic" class="control-label">موضوع</label>
+                        <input asp-for="Topic" class="form-control" />
+                        <span asp-validation-for="Topic" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-6 col-sm-12">
+                    <div class="form-group">
+                        <label asp-for="ContactId" class="control-label">مخاطب</label>
+                        <select asp-for="ContactId" class="form-control" asp-items="ViewBag.ContactId"></select>
+                        <span asp-validation-for="ContactId" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-12 col-lg-12 col-sm-12">
+                    <div class="form-group">
+                        <label asp-for="Description" class="control-label">توضیحات</label>
+                        <input asp-for="Description" class="form-control" />
+                        <span asp-validation-for="Description" class="text-danger"></span>
+                    </div>
+                </div>
+                <input asp-for="CreatedAt" type="hidden" class="form-control" />
+                <input asp-for="UpdatedAt" type="hidden" value="@DateTime.Now" class="form-control" />
+                <div class="form-group">
+                    <input type="submit" value="ذخیره" class="btn btn-primary" />
+                </div>
             </div>
         </form>
     </div>

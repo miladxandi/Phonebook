@@ -20,6 +20,19 @@
 
     <ItemGroup>
       <Folder Include="Pages\" />
+      <Folder Include="wwwroot\font" />
+      <Folder Include="wwwroot\js" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Content Update="Views\Home\Privacy.cshtml">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="wwwroot\css\custom.css">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
     </ItemGroup>
 
 </Project>
