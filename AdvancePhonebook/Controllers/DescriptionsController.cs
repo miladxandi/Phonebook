@@ -48,7 +48,7 @@ namespace AdvancePhonebook.Controllers
         // GET: Descriptions/Create
         public IActionResult Create()
         {
-            ViewData["ContactId"] = new SelectList(_context.Contacts, "Id", "Id");
+            ViewData["ContactId"] = new SelectList(_context.Contacts, "Id", "Name");
             return View();
         }
 
@@ -65,7 +65,7 @@ namespace AdvancePhonebook.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["ContactId"] = new SelectList(_context.Contacts, "Id", "Id", descriptions.ContactId);
+            ViewData["ContactId"] = new SelectList(_context.Contacts, "Id", "Name", descriptions.ContactId);
             return View(descriptions);
         }
 
@@ -82,7 +82,7 @@ namespace AdvancePhonebook.Controllers
             {
                 return NotFound();
             }
-            ViewData["ContactId"] = new SelectList(_context.Contacts, "Id", "Id", descriptions.ContactId);
+            ViewData["ContactId"] = new SelectList(_context.Contacts, "Id", "Name", descriptions.ContactId);
             return View(descriptions);
         }
 
@@ -118,7 +118,7 @@ namespace AdvancePhonebook.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["ContactId"] = new SelectList(_context.Contacts, "Id", "Id", descriptions.ContactId);
+            ViewData["ContactId"] = new SelectList(_context.Contacts, "Id", "Name", descriptions.ContactId);
             return View(descriptions);
         }
 
