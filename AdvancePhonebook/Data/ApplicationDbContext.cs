@@ -13,8 +13,8 @@ namespace AdvancePhonebook.Data
             : base(options)
         {
         }
-        public DbSet<AdvancePhonebook.Models.Descriptions> Descriptions { get; set; }
-        public DbSet<AdvancePhonebook.Models.Enterprises> Enterprises { get; set; }
         public DbSet<AdvancePhonebook.Models.Contacts> Contacts { get; set; }
+        public DbSet<AdvancePhonebook.Models.Enterprises> Enterprises { get; set; }
+        public DbSet<AdvancePhonebook.Models.Descriptions> Descriptions { get; set; }
     }
 }

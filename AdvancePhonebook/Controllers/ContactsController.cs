@@ -22,7 +22,8 @@ namespace AdvancePhonebook.Controllers
         // GET: Contacts
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Contacts.ToListAsync());
+            var applicationDbContext = _context.Contacts.Include(c => c.Enterprise);
+            return View(await applicationDbContext.ToListAsync());
         }
 
         // GET: Contacts/Details/5
@@ -34,6 +35,7 @@ namespace AdvancePhonebook.Controllers
             }
 
             var contacts = await _context.Contacts
+                .Include(c => c.Enterprise)
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (contacts == null)
             {
@@ -46,6 +48,7 @@ namespace AdvancePhonebook.Controllers
         // GET: Contacts/Create
         public IActionResult Create()
         {
+            ViewData["EnterpriseId"] = new SelectList(_context.Set<Enterprises>(), "Id", "Id");
             return View();
         }
 
@@ -54,7 +57,7 @@ namespace AdvancePhonebook.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Name,EnterpriseId,Role,Email,PhoneNumber,Line,CellPhone,Fax,Address,Category,Group,UserId,CreatedAt,UpdatedAt")] Contacts contacts)
+        public async Task<IActionResult> Create([Bind("Id,Name,EnterpriseId,Role,Email,PhoneNumber,Line,CellPhone,Fax,Address,CreatedAt,UpdatedAt")] Contacts contacts)
         {
             if (ModelState.IsValid)
             {
@@ -62,6 +65,7 @@ namespace AdvancePhonebook.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
+            ViewData["EnterpriseId"] = new SelectList(_context.Set<Enterprises>(), "Id", "Id", contacts.EnterpriseId);
             return View(contacts);
         }
 
@@ -78,6 +82,7 @@ namespace AdvancePhonebook.Controllers
             {
                 return NotFound();
             }
+            ViewData["EnterpriseId"] = new SelectList(_context.Set<Enterprises>(), "Id", "Id", contacts.EnterpriseId);
             return View(contacts);
         }
 
@@ -86,7 +91,7 @@ namespace AdvancePhonebook.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(long id, [Bind("Id,Name,EnterpriseId,Role,Email,PhoneNumber,Line,CellPhone,Fax,Address,Category,Group,UserId,CreatedAt,UpdatedAt")] Contacts contacts)
+        public async Task<IActionResult> Edit(long id, [Bind("Id,Name,EnterpriseId,Role,Email,PhoneNumber,Line,CellPhone,Fax,Address,CreatedAt,UpdatedAt")] Contacts contacts)
         {
             if (id != contacts.Id)
             {
@@ -113,6 +118,7 @@ namespace AdvancePhonebook.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
+            ViewData["EnterpriseId"] = new SelectList(_context.Set<Enterprises>(), "Id", "Id", contacts.EnterpriseId);
             return View(contacts);
         }
 
@@ -125,6 +131,7 @@ namespace AdvancePhonebook.Controllers
             }
 
             var contacts = await _context.Contacts
+                .Include(c => c.Enterprise)
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (contacts == null)
             {

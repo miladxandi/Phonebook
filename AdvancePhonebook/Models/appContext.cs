@@ -23,11 +23,8 @@ namespace AdvancePhonebook.Models
         public virtual DbSet<AspNetUserTokens> AspNetUserTokens { get; set; }
         public virtual DbSet<AspNetUsers> AspNetUsers { get; set; }
         public virtual DbSet<Contacts> Contacts { get; set; }
-        public virtual DbSet<DescriptionContacts> DescriptionContacts { get; set; }
-        public virtual DbSet<DescriptionInfo> DescriptionInfo { get; set; }
         public virtual DbSet<Descriptions> Descriptions { get; set; }
         public virtual DbSet<Enterprises> Enterprises { get; set; }
-        public virtual DbSet<UserContacts> UserContacts { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -56,7 +53,8 @@ namespace AdvancePhonebook.Models
             modelBuilder.Entity<AspNetRoles>(entity =>
             {
                 entity.HasIndex(e => e.NormalizedName)
-                    .HasName("RoleNameIndex");
+                    .HasName("RoleNameIndex")
+                    .IsUnique();
             });
 
             modelBuilder.Entity<AspNetUserClaims>(entity =>
@@ -91,8 +89,6 @@ namespace AdvancePhonebook.Models
 
                 entity.HasIndex(e => e.RoleId);
 
-                entity.HasIndex(e => e.UserId);
-
                 entity.HasOne(d => d.Role)
                     .WithMany(p => p.AspNetUserRoles)
                     .HasForeignKey(d => d.RoleId);
@@ -105,6 +101,10 @@ namespace AdvancePhonebook.Models
             modelBuilder.Entity<AspNetUserTokens>(entity =>
             {
                 entity.HasKey(e => new { e.UserId, e.LoginProvider, e.Name });
+
+                entity.HasOne(d => d.User)
+                    .WithMany(p => p.AspNetUserTokens)
+                    .HasForeignKey(d => d.UserId);
             });
 
             modelBuilder.Entity<AspNetUsers>(entity =>
@@ -120,26 +120,26 @@ namespace AdvancePhonebook.Models
             modelBuilder.Entity<Contacts>(entity =>
             {
                 entity.Property(e => e.Id).ValueGeneratedNever();
-            });
 
-            modelBuilder.Entity<DescriptionContacts>(entity =>
-            {
-                entity.HasNoKey();
+                entity.HasOne(d => d.Enterprise)
+                    .WithMany(p => p.Contacts)
+                    .HasForeignKey(d => d.EnterpriseId)
+                    .OnDelete(DeleteBehavior.Cascade);
             });
 
             modelBuilder.Entity<Descriptions>(entity =>
             {
                 entity.Property(e => e.Id).ValueGeneratedNever();
+
+                entity.HasOne(d => d.Contact)
+                    .WithMany(p => p.Descriptions)
+                    .HasForeignKey(d => d.ContactId)
+                    .OnDelete(DeleteBehavior.Cascade);
             });
 
             modelBuilder.Entity<Enterprises>(entity =>
             {
                 entity.Property(e => e.Id).ValueGeneratedNever();
-            });
-
-            modelBuilder.Entity<UserContacts>(entity =>
-            {
-                entity.HasNoKey();
             });
 
             OnModelCreatingPartial(modelBuilder);
