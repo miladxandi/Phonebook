@@ -36,85 +36,86 @@
 
     <!-- Slim CSS -->
     <link rel="stylesheet" href="~/css/slim.css">
-    
+
     <!-- Slim CSS -->
     <link rel="stylesheet" href="~/css/custom.css">
 
 </head>
 <body>
-<div class="slim-header persian">
-    <div class="container">
-        <div class="slim-header-left">
-            <h2 class="slim-logo">
-                <a href="/">
-                    دفترچه تلفن پیشرفته
-                </a>
-            </h2>
-
-            <div class="search-box">
-                <input type="text" class="form-control" placeholder="جستجو ...">
-                <button class="btn btn-primary">
-                    <i class="fa fa-search"></i>
-                </button>
+    <div class="slim-header persian">
+        <div class="container">
+            <div class="slim-header-left">
+                <h2 class="slim-logo">
+                    <a href="/">
+                        دفترچه تلفن پیشرفته
+                    </a>
+                </h2>
+                <form asp-controller="Contacts" asp-action="Search" method="post">
+                    <div class="search-box">
+                        <input type="text" name="name" class="form-control" placeholder="جستجو ...">
+                        <button class="btn btn-primary">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+                </form>
             </div>
         </div><!-- slim-header-left -->
         <div class="slim-header-right">
-            <partial name="_LoginPartial"/>
+            <partial name="_LoginPartial" />
         </div><!-- header-right -->
     </div><!-- container -->
-</div><!-- slim-header -->
 
-<div class="slim-navbar persian">
-    <div class="container">
-        <ul class="nav">
-            <li class="nav-item">
-                <a class="nav-link" asp-controller="Descriptions" asp-action="Index" title="لیست توضیحات">
-                    <i class="icon ion-pin"></i><span>لیست توضیحات</span>
-                </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" asp-controller="Contacts" asp-action="Index" title="اطلاعات افراد">
-                    <i class="icon ion-card"></i><span>اطلاعات افراد</span>
-                </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" asp-controller="Enterprises" asp-action="Index" title="شرکت ها">
-                    <i class="icon ion-android-document"></i><span>شرکت ها</span>
-                </a>
-            </li>
-        </ul>
-    </div><!-- container -->
-</div><!-- slim-navbar -->
+    <div class="slim-navbar persian">
+        <div class="container">
+            <ul class="nav">
+                <li class="nav-item">
+                    <a class="nav-link" asp-controller="Descriptions" asp-action="Index" title="لیست توضیحات">
+                        <i class="icon ion-pin"></i><span>لیست توضیحات</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" asp-controller="Contacts" asp-action="Index" title="اطلاعات افراد">
+                        <i class="icon ion-card"></i><span>اطلاعات افراد</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" asp-controller="Enterprises" asp-action="Index" title="شرکت ها">
+                        <i class="icon ion-android-document"></i><span>شرکت ها</span>
+                    </a>
+                </li>
+            </ul>
+        </div><!-- container -->
+    </div><!-- slim-navbar -->
 
-<div class="slim-mainpanel">
-<div class="container">
+    <div class="slim-mainpanel">
+        <div class="container">
 
-    @RenderBody()
+            @RenderBody()
 
-</div><!-- container -->
-</div><!-- slim-mainpanel -->
+        </div><!-- container -->
+    </div><!-- slim-mainpanel -->
 
-<div class="slim-footer">
-    <div class="container">
-        <p  > &copy; 1399 - Milad Xandi</p>
-        <p>Designed by: <a href="">ThemePixels</a></p>
-    </div><!-- container -->
-</div><!-- slim-footer -->
+    <div class="slim-footer">
+        <div class="container">
+            <p> &copy; 1399 - Milad Xandi</p>
+            <p>Designed by: <a href="">ThemePixels</a></p>
+        </div><!-- container -->
+    </div><!-- slim-footer -->
 
 
-<script src="~/lib/jquery/dist/jquery.min.js"></script>
-<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-<script src="~/js/site.js" asp-append-version="true"></script>
-<script src="~/lib/popper.js/js/popper.js"></script>
-<script src="~/lib/bootstrap/js/bootstrap.js"></script>
-<script src="~/lib/jquery.cookie/js/jquery.cookie.js"></script>
-<script src="~/lib/chartist/js/chartist.js"></script>
-<script src="~/lib/d3/js/d3.js"></script>
-<script src="~/lib/rickshaw/js/rickshaw.min.js"></script>
-<script src="~/lib/jquery.sparkline.bower/js/jquery.sparkline.min.js"></script>
-<script src="~/js/ResizeSensor.js"></script>
-<script src="~/js/dashboard.js"></script>
-<script src="~/js/slim.js"></script>
-@RenderSection("Scripts", required: false)
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="~/lib/popper.js/js/popper.js"></script>
+    <script src="~/lib/bootstrap/js/bootstrap.js"></script>
+    <script src="~/lib/jquery.cookie/js/jquery.cookie.js"></script>
+    <script src="~/lib/chartist/js/chartist.js"></script>
+    <script src="~/lib/d3/js/d3.js"></script>
+    <script src="~/lib/rickshaw/js/rickshaw.min.js"></script>
+    <script src="~/lib/jquery.sparkline.bower/js/jquery.sparkline.min.js"></script>
+    <script src="~/js/ResizeSensor.js"></script>
+    <script src="~/js/dashboard.js"></script>
+    <script src="~/js/slim.js"></script>
+    @RenderSection("Scripts", required: false)
 </body>
 </html>
