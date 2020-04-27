@@ -1,96 +1,80 @@
 ﻿@model IEnumerable<AdvancePhonebook.Models.Contacts>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "مخاطبین";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1>Index</h1>
-
 <p>
-    <a asp-action="Create">Create New</a>
+    <h1>@ViewData["Title"]</h1>
 </p>
-<table class="table">
-    <thead>
-        <tr>
+<p>
+    <a asp-action="Create">
+        <button class="btn btn-success">
+            + افزودن
+        </button>
+    </a>
+</p>
+<div class="table-responsive">
+    <table class="table mg-b-0 tx-12">
+        <thead>
+        <tr class="tx-10">
             <th>
-                @Html.DisplayNameFor(model => model.Name)
+               نام
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Role)
+                سمت
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Email)
+                ایمیل
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.PhoneNumber)
+                شماره تماس
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Line)
+                داخلی
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.CellPhone)
+                شماره موبایل
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Fax)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Address)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.CreatedAt)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.UpdatedAt)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Enterprise)
+                شرکت
             </th>
             <th></th>
         </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Role)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Email)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PhoneNumber)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Line)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CellPhone)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Fax)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Address)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CreatedAt)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.UpdatedAt)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Enterprise.Name)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+        </thead>
+        <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Role)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Email)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PhoneNumber)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Line)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CellPhone)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Enterprise.Name)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.Id">ویرایش</a> |
+                    <a asp-action="Details" asp-route-id="@item.Id">جزئیات</a> |
+                    <a asp-action="Delete" asp-route-id="@item.Id">حذف</a>
+                </td>
+            </tr>
+        }
+        </tbody>
+    </table>
+</div>

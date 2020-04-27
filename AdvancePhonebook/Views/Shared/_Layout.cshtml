@@ -1,55 +1,120 @@
 ﻿<!DOCTYPE html>
-<html lang="en">
+<html lang="fa" dir="rtl">
 <head>
-    <meta charset="utf-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Slim">
+    <meta name="twitter:description" content="Premium Quality and Responsive UI for Dashboard.">
+    <meta name="twitter:image" content="http://themepixels.me/slim/img/slim-social.png">
+
+    <!-- Facebook -->
+    <meta property="og:url" content="http://themepixels.me/slim">
+    <meta property="og:title" content="Slim">
+    <meta property="og:description" content="Premium Quality and Responsive UI for Dashboard.">
+
+    <meta property="og:image" content="http://themepixels.me/slim/img/slim-social.png">
+    <meta property="og:image:secure_url" content="http://themepixels.me/slim/img/slim-social.png">
+    <meta property="og:image:type" content="image/png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="600">
+
+    <!-- Meta -->
+    <meta name="description" content="Premium Quality and Responsive UI for Dashboard.">
+    <meta name="author" content="ThemePixels">
+
     <title>@ViewData["Title"] - دفترچه تلفن</title>
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css"/>
-    <link rel="stylesheet" href="~/css/site.css"/>
+
+    <!-- vendor css -->
+    <link href="~/lib/font-awesome/css/font-awesome.css" rel="stylesheet">
+    <link href="~/lib/Ionicons/css/ionicons.css" rel="stylesheet">
+    <link href="~/lib/chartist/css/chartist.css" rel="stylesheet">
+    <link href="~/lib/rickshaw/css/rickshaw.min.css" rel="stylesheet">
+
+    <!-- Slim CSS -->
+    <link rel="stylesheet" href="~/css/slim.css">
+    
+    <!-- Slim CSS -->
+    <link rel="stylesheet" href="~/css/custom.css">
+
 </head>
 <body>
-<header>
-    <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-        <div class="container">
-            <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">AdvancePhonebook</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                    aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
-                <partial name="_LoginPartial"/>
-                <ul class="navbar-nav flex-grow-1">
-                    <li class="nav-item">
-                        <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">خانه</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-dark" asp-controller="Descriptions" asp-action="Index" title="لیست توضیحات">لیست توضیحات</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-dark" asp-controller="Contacts" asp-action="Index" title="اطلاعات افراد">اطلاعات افراد</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-dark" asp-controller="Enterprises" asp-action="Index" title="شرکت ها">شرکت ها</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-</header>
-<div class="container">
-    <main role="main" class="pb-3">
-        @RenderBody()
-    </main>
-</div>
-
-<footer class="border-top footer text-muted">
+<div class="slim-header persian">
     <div class="container">
-        &copy; 1399 - AdvancePhonebook - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-    </div>
-</footer>
+        <div class="slim-header-left">
+            <h2 class="slim-logo">
+                <a href="/">
+                    دفترچه تلفن پیشرفته
+                </a>
+            </h2>
+
+            <div class="search-box">
+                <input type="text" class="form-control" placeholder="جستجو ...">
+                <button class="btn btn-primary">
+                    <i class="fa fa-search"></i>
+                </button>
+            </div>
+        </div><!-- slim-header-left -->
+        <div class="slim-header-right">
+            <partial name="_LoginPartial"/>
+        </div><!-- header-right -->
+    </div><!-- container -->
+</div><!-- slim-header -->
+
+<div class="slim-navbar persian">
+    <div class="container">
+        <ul class="nav">
+            <li class="nav-item">
+                <a class="nav-link" asp-controller="Descriptions" asp-action="Index" title="لیست توضیحات">
+                    <i class="icon ion-pin"></i><span>لیست توضیحات</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" asp-controller="Contacts" asp-action="Index" title="اطلاعات افراد">
+                    <i class="icon ion-card"></i><span>اطلاعات افراد</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" asp-controller="Enterprises" asp-action="Index" title="شرکت ها">
+                    <i class="icon ion-android-document"></i><span>شرکت ها</span>
+                </a>
+            </li>
+        </ul>
+    </div><!-- container -->
+</div><!-- slim-navbar -->
+
+<div class="slim-mainpanel">
+<div class="container">
+
+    @RenderBody()
+
+</div><!-- container -->
+</div><!-- slim-mainpanel -->
+
+<div class="slim-footer">
+    <div class="container">
+        <p  > &copy; 1399 - Milad Xandi</p>
+        <p>Designed by: <a href="">ThemePixels</a></p>
+    </div><!-- container -->
+</div><!-- slim-footer -->
+
+
 <script src="~/lib/jquery/dist/jquery.min.js"></script>
 <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
 <script src="~/js/site.js" asp-append-version="true"></script>
+<script src="~/lib/popper.js/js/popper.js"></script>
+<script src="~/lib/bootstrap/js/bootstrap.js"></script>
+<script src="~/lib/jquery.cookie/js/jquery.cookie.js"></script>
+<script src="~/lib/chartist/js/chartist.js"></script>
+<script src="~/lib/d3/js/d3.js"></script>
+<script src="~/lib/rickshaw/js/rickshaw.min.js"></script>
+<script src="~/lib/jquery.sparkline.bower/js/jquery.sparkline.min.js"></script>
+<script src="~/js/ResizeSensor.js"></script>
+<script src="~/js/dashboard.js"></script>
+<script src="~/js/slim.js"></script>
 @RenderSection("Scripts", required: false)
 </body>
 </html>
