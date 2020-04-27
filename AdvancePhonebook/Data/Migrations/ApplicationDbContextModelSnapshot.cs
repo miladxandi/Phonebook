@@ -16,6 +16,124 @@ namespace AdvancePhonebook.Data.Migrations
             modelBuilder
                 .HasAnnotation("ProductVersion", "3.1.3");
 
+            modelBuilder.Entity("AdvancePhonebook.Models.Contacts", b =>
+                {
+                    b.Property<long>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("Address")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Category")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("CellPhone")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("CreatedAt")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Email")
+                        .HasColumnType("TEXT");
+
+                    b.Property<long?>("EnterpriseId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("Fax")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Group")
+                        .HasColumnType("TEXT");
+
+                    b.Property<long?>("Line")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("PhoneNumber")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Role")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("UpdatedAt")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("UserId")
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("EnterpriseId");
+
+                    b.ToTable("Contacts");
+                });
+
+            modelBuilder.Entity("AdvancePhonebook.Models.Descriptions", b =>
+                {
+                    b.Property<long>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<long?>("ContactId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("CreatedAt")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Description")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Topic")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("UpdatedAt")
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ContactId");
+
+                    b.ToTable("Descriptions");
+                });
+
+            modelBuilder.Entity("AdvancePhonebook.Models.Enterprises", b =>
+                {
+                    b.Property<long>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("Address")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("CreatedAt")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Email")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Fax")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("PhoneNumber")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("PostalCode")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("UpdatedAt")
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Enterprises");
+                });
+
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
                 {
                     b.Property<string>("Id")
@@ -210,6 +328,20 @@ namespace AdvancePhonebook.Data.Migrations
                     b.HasKey("UserId", "LoginProvider", "Name");
 
                     b.ToTable("AspNetUserTokens");
+                });
+
+            modelBuilder.Entity("AdvancePhonebook.Models.Contacts", b =>
+                {
+                    b.HasOne("AdvancePhonebook.Models.Enterprises", "Enterprise")
+                        .WithMany("Contacts")
+                        .HasForeignKey("EnterpriseId");
+                });
+
+            modelBuilder.Entity("AdvancePhonebook.Models.Descriptions", b =>
+                {
+                    b.HasOne("AdvancePhonebook.Models.Contacts", "Contact")
+                        .WithMany("Description")
+                        .HasForeignKey("ContactId");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

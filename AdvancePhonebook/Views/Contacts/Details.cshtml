@@ -18,12 +18,6 @@
             @Html.DisplayFor(model => model.Name)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.EnterpriseId)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.EnterpriseId)
-        </dd>
-        <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.Role)
         </dt>
         <dd class = "col-sm-10">
@@ -66,24 +60,6 @@
             @Html.DisplayFor(model => model.Address)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Category)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Category)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Group)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Group)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.UserId)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.UserId)
-        </dd>
-        <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.CreatedAt)
         </dt>
         <dd class = "col-sm-10">
@@ -94,6 +70,12 @@
         </dt>
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.UpdatedAt)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Enterprise)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Enterprise.Id)
         </dd>
     </dl>
 </div>

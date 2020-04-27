@@ -22,7 +22,8 @@ namespace AdvancePhonebook.Controllers
         // GET: Descriptions
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Descriptions.ToListAsync());
+            var applicationDbContext = _context.Descriptions.Include(d => d.Contact);
+            return View(await applicationDbContext.ToListAsync());
         }
 
         // GET: Descriptions/Details/5
@@ -34,6 +35,7 @@ namespace AdvancePhonebook.Controllers
             }
 
             var descriptions = await _context.Descriptions
+                .Include(d => d.Contact)
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (descriptions == null)
             {
@@ -46,6 +48,7 @@ namespace AdvancePhonebook.Controllers
         // GET: Descriptions/Create
         public IActionResult Create()
         {
+            ViewData["ContactId"] = new SelectList(_context.Contacts, "Id", "Id");
             return View();
         }
 
@@ -54,7 +57,7 @@ namespace AdvancePhonebook.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Topic,Description,CreatedAt,UpdatedAt")] Descriptions descriptions)
+        public async Task<IActionResult> Create([Bind("Id,Topic,ContactId,Description,CreatedAt,UpdatedAt")] Descriptions descriptions)
         {
             if (ModelState.IsValid)
             {
@@ -62,6 +65,7 @@ namespace AdvancePhonebook.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
+            ViewData["ContactId"] = new SelectList(_context.Contacts, "Id", "Id", descriptions.ContactId);
             return View(descriptions);
         }
 
@@ -78,6 +82,7 @@ namespace AdvancePhonebook.Controllers
             {
                 return NotFound();
             }
+            ViewData["ContactId"] = new SelectList(_context.Contacts, "Id", "Id", descriptions.ContactId);
             return View(descriptions);
         }
 
@@ -86,7 +91,7 @@ namespace AdvancePhonebook.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(long id, [Bind("Id,Topic,Description,CreatedAt,UpdatedAt")] Descriptions descriptions)
+        public async Task<IActionResult> Edit(long id, [Bind("Id,Topic,ContactId,Description,CreatedAt,UpdatedAt")] Descriptions descriptions)
         {
             if (id != descriptions.Id)
             {
@@ -113,6 +118,7 @@ namespace AdvancePhonebook.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
+            ViewData["ContactId"] = new SelectList(_context.Contacts, "Id", "Id", descriptions.ContactId);
             return View(descriptions);
         }
 
@@ -125,6 +131,7 @@ namespace AdvancePhonebook.Controllers
             }
 
             var descriptions = await _context.Descriptions
+                .Include(d => d.Contact)
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (descriptions == null)
             {
