@@ -152,6 +152,30 @@ namespace AdvancePhonebook.Controllers
             return RedirectToAction(nameof(Index));
         }
 
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Search(string name)
+        {
+            ViewData["Title"] = "جستجوی مخاطب برای " + name;
+
+            if (name == null)
+            {
+                return NotFound();
+            }
+
+            var result = await _context.Contacts
+                .Include(c => c.Enterprise)
+                .OrderBy(h=>h.CreatedAt)
+                .Where(n=>n.Name.Contains(name))
+                .FirstOrDefaultAsync();
+            if (result == null)
+            {
+                return Redirect("/Contacts");
+            }
+
+            return View(result);
+        }
+
         private bool ContactsExists(long id)
         {
             return _context.Contacts.Any(e => e.Id == id);
