@@ -1,4 +1,4 @@
-﻿@model AdvancePhonebook.Models.Contacts
+﻿@model IEnumerable<AdvancePhonebook.Models.Contacts>
 
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -10,46 +10,50 @@
     </p>
     <hr />
     <div class="row">
-        <div class = "col-sm-2">
+        <div class="col-sm-2">
             نام
         </div>
-        <div class = "col-sm-2">
+        <div class="col-sm-2">
             سمت و شرکت
         </div>
-        <div class = "col-sm-2">
+        <div class="col-sm-2">
             شماره دفتر
         </div>
-        <div class = "col-sm-2">
+        <div class="col-sm-2">
             داخلی
         </div>
-        <div class = "col-sm-2">
+        <div class="col-sm-2">
             موبایل
         </div>
-        <div class = "col-sm-2">
+        <div class="col-sm-2">
             عملیات
         </div>
     </div>
     <hr>
-    <div class="row">
-        <div class = "col-sm-2">
-            @Model.Name
+    @foreach (var item in Model)
+    {
+        <div class="row">
+            <div class="col-sm-2">
+                @item.Name
+            </div>
+            <div class="col-sm-2">
+                @item.Role در شرکت @item.Enterprise.Name
+            </div>
+            <div class="col-sm-2">
+                @item.PhoneNumber
+            </div>
+            <div class="col-sm-2">
+                @item.Line
+            </div>
+            <div class="col-sm-2">
+                @item.CellPhone
+            </div>
+            <div class="col-sm-2">
+                <a asp-controller="Contacts" asp-action="Details" asp-route-id="@item.Id">
+                    مشاهده
+                </a>
+            </div>
         </div>
-        <div class = "col-sm-2">
-            @Model.Role در شرکت @Model.Enterprise.Name
-        </div>
-        <div class = "col-sm-2">
-            @Model.PhoneNumber
-        </div>
-        <div class = "col-sm-2">
-            @Model.Line
-        </div>
-        <div class = "col-sm-2">
-            @Model.CellPhone
-        </div>
-        <div class = "col-sm-2">
-            <a asp-controller="Contacts" asp-action="Details" asp-route-id="@Model.Id" >
-                مشاهده
-            </a>
-        </div>
-    </div>
+        <hr />
+    }
 </div>

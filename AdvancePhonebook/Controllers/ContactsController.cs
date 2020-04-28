@@ -154,7 +154,7 @@ namespace AdvancePhonebook.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Search(string name)
+        public ActionResult Search(string name)
         {
             ViewData["Title"] = "جستجوی مخاطب برای " + name;
 
@@ -163,15 +163,18 @@ namespace AdvancePhonebook.Controllers
                 return NotFound();
             }
 
-            var result = await _context.Contacts
+            var result =  _context.Contacts
                 .Include(c => c.Enterprise)
                 .OrderBy(h=>h.CreatedAt)
                 .Where(n=>n.Name.Contains(name))
-                .FirstOrDefaultAsync();
+                .ToArray();
+            
+
             if (result == null)
             {
                 return Redirect("/Contacts");
             }
+
 
             return View(result);
         }

@@ -195,3 +195,4 @@ F:\xProjects\Rider\AdvancePhonebook\AdvancePhonebook\obj\Debug\netcoreapp3.1\Raz
 F:\xProjects\Rider\AdvancePhonebook\AdvancePhonebook\obj\Debug\netcoreapp3.1\Razor\Views\Enterprises\Edit.cshtml.g.cs
 F:\xProjects\Rider\AdvancePhonebook\AdvancePhonebook\obj\Debug\netcoreapp3.1\Razor\Views\Enterprises\Index.cshtml.g.cs
 F:\xProjects\Rider\AdvancePhonebook\AdvancePhonebook\obj\Debug\netcoreapp3.1\Razor\Views\Contacts\Search.cshtml.g.cs
+F:\xProjects\Rider\AdvancePhonebook\AdvancePhonebook\bin\Debug\netcoreapp3.1\app.db
