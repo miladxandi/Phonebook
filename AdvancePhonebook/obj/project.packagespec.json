@@ -1,10 +1,10 @@
 ﻿{
   "version": "1.0.0",
   "restore": {
-    "projectUniqueName": "F:\\xProjects\\Rider\\AdvancePhonebook\\AdvancePhonebook\\AdvancePhonebook.csproj",
+    "projectUniqueName": "F:\\Zandi Projects\\NetCore\\AdvancePhonebook\\AdvancePhonebook\\AdvancePhonebook.csproj",
     "projectName": "AdvancePhonebook",
-    "projectPath": "F:\\xProjects\\Rider\\AdvancePhonebook\\AdvancePhonebook\\AdvancePhonebook.csproj",
-    "outputPath": "F:\\xProjects\\Rider\\AdvancePhonebook\\AdvancePhonebook\\obj\\",
+    "projectPath": "F:\\Zandi Projects\\NetCore\\AdvancePhonebook\\AdvancePhonebook\\AdvancePhonebook.csproj",
+    "outputPath": "F:\\Zandi Projects\\NetCore\\AdvancePhonebook\\AdvancePhonebook\\obj\\",
     "projectStyle": "PackageReference",
     "fallbackFolders": [
       "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
