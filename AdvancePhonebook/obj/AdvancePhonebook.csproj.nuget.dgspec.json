@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "F:\\xProjects\\Rider\\AdvancePhonebook\\AdvancePhonebook\\AdvancePhonebook.csproj": {}
+    "F:\\Zandi Projects\\NetCore\\AdvancePhonebook\\AdvancePhonebook\\AdvancePhonebook.csproj": {}
   },
   "projects": {
-    "F:\\xProjects\\Rider\\AdvancePhonebook\\AdvancePhonebook\\AdvancePhonebook.csproj": {
+    "F:\\Zandi Projects\\NetCore\\AdvancePhonebook\\AdvancePhonebook\\AdvancePhonebook.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "F:\\xProjects\\Rider\\AdvancePhonebook\\AdvancePhonebook\\AdvancePhonebook.csproj",
+        "projectUniqueName": "F:\\Zandi Projects\\NetCore\\AdvancePhonebook\\AdvancePhonebook\\AdvancePhonebook.csproj",
         "projectName": "AdvancePhonebook",
-        "projectPath": "F:\\xProjects\\Rider\\AdvancePhonebook\\AdvancePhonebook\\AdvancePhonebook.csproj",
-        "packagesPath": "C:\\Users\\Hico-PC08\\.nuget\\packages\\",
-        "outputPath": "F:\\xProjects\\Rider\\AdvancePhonebook\\AdvancePhonebook\\obj\\",
+        "projectPath": "F:\\Zandi Projects\\NetCore\\AdvancePhonebook\\AdvancePhonebook\\AdvancePhonebook.csproj",
+        "packagesPath": "C:\\Users\\m.zandi\\.nuget\\packages\\",
+        "outputPath": "F:\\Zandi Projects\\NetCore\\AdvancePhonebook\\AdvancePhonebook\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\Hico-PC08\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\m.zandi\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
